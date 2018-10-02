@@ -2125,3 +2125,19 @@ div[class*='filtered-menu'].style-v2 li:last-child { padding-right: 0; }
 .demo-sample-icon hr { margin-top: 25px; margin-bottom: 25px; }
 
 @media only screen and (max-width: 479px) { .page-typo .col-md-3.col-sm-6.col-xs-6 { width: 100%; } }
+
+.banner-slider .fill::after {
+  content: "";
+  position: absolute;
+  left:0;
+  right:0;
+  top: 0;
+  bottom:0;
+  background: rgba(0,0,0,0.5);
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+}
+.has-bg.lighter-filter:after {
+  opacity: .5;
+    
+}

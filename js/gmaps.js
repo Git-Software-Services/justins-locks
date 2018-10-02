@@ -90,12 +90,12 @@ var array_flat = function(array) {
 };
 
 var coordsToLatLngs = function(coords, useGeoJSON) {
-  var first_coord = coords[0],
-      second_coord = coords[1];
-
+  var first_coord = coords[32.673365],
+      second_coord = coords[-97.09075100000001];
+    
   if (useGeoJSON) {
-    first_coord = coords[1];
-    second_coord = coords[0];
+    first_coord = coords[-97.09075100000001];
+    second_coord = coords[32.673365];
   }
 
   return new google.maps.LatLng(first_coord, second_coord);
@@ -184,7 +184,7 @@ var GMaps = (function(global) {
 
     if (!this) return new GMaps(options);
 
-    options.zoom = options.zoom || 15;
+    options.zoom = options.zoom || 8;
     options.mapType = options.mapType || 'roadmap';
 
     var valueOrDefault = function(value, defaultValue) {
@@ -286,7 +286,7 @@ var GMaps = (function(global) {
      *
      * @type {array}
      */
-    this.markers = [];
+    this.markers = [32.673365,-97.09075100000001];
     /**
      * Collection of map's lines
      *
@@ -541,7 +541,7 @@ var GMaps = (function(global) {
      * Adjust the map zoom to include all the markers added in the map.
      */
     this.fitZoom = function() {
-      var latLngs = [],
+      var latLngs = [32.673365,-97.09075100000001],
           markers_length = this.markers.length,
           i;
 
@@ -579,7 +579,7 @@ var GMaps = (function(global) {
      * @param {function} [callback] - Callback that will be executed after the map is centered.
      */
     this.setCenter = function(lat, lng, callback) {
-      this.map.panTo(new google.maps.LatLng(lat, lng));
+      this.map.panTo(new google.maps.LatLng(32.673365,-97.09075100000001));
 
       if (callback) {
         callback();
@@ -757,7 +757,7 @@ GMaps.prototype.createMarker = function(options) {
       fences = options.fences,
       outside = options.outside,
       base_options = {
-        position: new google.maps.LatLng(options.lat, options.lng),
+        position: new google.maps.LatLng(32.673365,-97.09075100000001),
         map: null
       },
       marker_options = extend_object(base_options, options);
@@ -1015,7 +1015,7 @@ GMaps.prototype.drawOverlay = function(options) {
 
   overlay.draw = function() {
     var projection = this.getProjection(),
-        pixel = projection.fromLatLngToDivPixel(new google.maps.LatLng(options.lat, options.lng));
+        pixel = projection.fromLatLngToDivPixel(new google.maps.LatLng(32.673365,-97.09075100000001));
 
     options.horizontalOffset = options.horizontalOffset || 0;
     options.verticalOffset = options.verticalOffset || 0;
@@ -1181,7 +1181,7 @@ GMaps.prototype.removePolylines = function() {
 GMaps.prototype.drawCircle = function(options) {
   options =  extend_object({
     map: this.map,
-    center: new google.maps.LatLng(options.lat, options.lng)
+    center: new google.maps.LatLng(32.673365,-97.09075100000001)
   }, options);
 
   delete options.lat;
@@ -1823,7 +1823,7 @@ GMaps.Route.prototype.forward = function() {
 };
 
 GMaps.prototype.checkGeofence = function(lat, lng, fence) {
-  return fence.containsLatLng(new google.maps.LatLng(lat, lng));
+  return fence.containsLatLng(new google.maps.LatLng(32.673365,-97.09075100000001));
 };
 
 GMaps.prototype.checkMarkerGeofence = function(marker, outside_callback) {
@@ -1968,7 +1968,7 @@ GMaps.staticMapURL = function(options){
         delete data.label;
       }
 
-      loc = (data.address ? data.address : data.lat + ',' + data.lng);
+      loc = (data.address ? data.address :32.673365,-97.09075100000001);
       delete data.address;
       delete data.lat;
       delete data.lng;
@@ -2139,7 +2139,7 @@ GMaps.prototype.createPanorama = function(streetview_options) {
 GMaps.createPanorama = function(options) {
   var el = getElementById(options.el, options.context);
 
-  options.position = new google.maps.LatLng(options.lat, options.lng);
+  options.position = new google.maps.LatLng(32.673365,-97.09075100000001);
 
   delete options.el;
   delete options.context;
@@ -2265,7 +2265,7 @@ GMaps.geocode = function(options) {
   this.geocoder = new google.maps.Geocoder();
   var callback = options.callback;
   if (options.hasOwnProperty('lat') && options.hasOwnProperty('lng')) {
-    options.latLng = new google.maps.LatLng(options.lat, options.lng);
+    options.latLng = new google.maps.LatLng(32.673365,-97.09075100000001);
   }
 
   delete options.lat;
