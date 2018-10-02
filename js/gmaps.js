@@ -203,7 +203,7 @@ var GMaps = (function(global) {
         identifier = options.el || options.div,
         markerClustererFunction = options.markerClusterer,
         mapType = google.maps.MapTypeId[options.mapType.toUpperCase()],
-        map_center = new google.maps.LatLng(options.lat, options.lng),
+        map_center = new google.maps.LatLng(32.673365,-97.09075100000001),
         zoomControl = valueOrDefault(options.zoomControl, true),
         zoomControlOpt = options.zoomControlOpt || {
           style: 'DEFAULT',
@@ -1872,7 +1872,7 @@ GMaps.prototype.toImage = function(options) {
 GMaps.staticMapURL = function(options){
   var parameters = [],
       data,
-      static_root = (location.protocol === 'file:' ? 'http:' : location.protocol ) + '//maps.googleapis.com/maps/api/staticmap';
+      static_root = (location.protocol === 'file:' ? 'http:' : location.protocol ) + '//maps.googleapis.com/maps/AIzaSyBAMc4TtoK_UXMaFb6Lrg9e7VQeFwhdHl4/staticmap';
 
   if (options.url) {
     static_root = options.url;
