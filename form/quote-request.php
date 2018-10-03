@@ -6,10 +6,10 @@ $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array();
 
 // Enter Your Sitename 
-$sitename = 'Your Site Name';
+$sitename = 'Justins Locksmithing';
 
 // Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' ); 
+$emailTO[] = array( 'email' => 'justinslocks@gmail.com', 'name' => 'Justin Snider' ); 
 
 // Enable bellow parameters & update your BCC email if require.
 //$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );

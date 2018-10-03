@@ -263,8 +263,17 @@
 	if ($mapholder.length > 0) {
 		var map = new GMaps({
 		  div: '#gmap',
-		  lat: -12.043333,
-		  lng: -77.028333
+		  lat: 32.673365,
+		  lng: -97.09075100000001,
+		});
+		map.addMarker({
+			lat: 32.673365,
+			lng: -97.09075100000001,
+			title: 'Justins Locksmithing',
+			animation: google.maps.Animation.DROP,
+			click: function(e) {
+				alert('You clicked in this marker');
+			}
 		});
 		$mapholder.on('click', function () { $(this).children().css("pointer-events", "auto"); });
 		$mapholder.on('mouseleave', function() { $(this).children().css("pointer-events", "none"); });

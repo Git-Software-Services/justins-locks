@@ -184,7 +184,7 @@ var GMaps = (function(global) {
 
     if (!this) return new GMaps(options);
 
-    options.zoom = options.zoom || 8;
+    options.zoom = options.zoom || 15;
     options.mapType = options.mapType || 'roadmap';
 
     var valueOrDefault = function(value, defaultValue) {
