@@ -1,3 +1,11 @@
+//preloader
+
+$(window).on('load', function () {
+
+	$('.preloader').fadeOut(1000);
+
+});
+
 ;(function($){
 	'use strict';
 	var $win = $(window), $body_m = $('body');
